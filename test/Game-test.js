@@ -17,17 +17,29 @@ describe('Game', function() {
   it('should be an instance of Game', function() {
     const game = new Game();
     expect(game).to.be.an.instanceof(Game);
-    game.start();
   });
 
-  // it('should be able to return the current card being played', function() {
-  // const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-  // const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-  //
-  // const deck = new Deck([card1, card2]);
-  // const round = new Round(deck);
-  // const game = new Game(round);
-  // game.start();
-  //
-  // });
+  it('should create a new instance of the deck class when a game begins', function() {
+    const game = new Game();
+    game.start();
+    expect(Deck).to.be.a('function');
+  });
+
+  it('should create a new instance of the round class when a game begins', function() {
+    const game = new Game();
+    game.start();
+    expect(Round).to.be.a('function');
+  });
+
+  it('should create a new instance of the card class when a game begins', function() {
+    const game = new Game();
+    game.start();
+    expect(Card).to.be.a('function');
+  });
+
+  it('should keep track of the number of cards in the game', function() {
+  const game = new Game();
+  game.start();
+  expect(game.cards.length).to.equal(30);
+  });
 });
